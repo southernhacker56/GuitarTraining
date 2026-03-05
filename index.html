@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuitarLearn - Learn to Play Guitar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="10" cy="20" rx="8" ry="6" stroke="#e8a020" stroke-width="2" fill="none"/>
+          <circle cx="10" cy="20" r="2" fill="#e8a020"/>
+          <line x1="18" y1="16" x2="26" y2="4" stroke="#e8a020" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="20" y1="10" x2="24" y2="8" stroke="#e8a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="21" y1="12" x2="25" y2="10" stroke="#e8a020" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="22" y1="14" x2="26" y2="12" stroke="#e8a020" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        GuitarLearn
+      </a>
+      <ul class="nav-links">
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#chords">Chords</a></li>
+        <li><a href="#practice">Practice</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Beginner Friendly</div>
+      <h1>Learn Guitar,<br><span class="accent">One Chord at a Time</span></h1>
+      <p class="hero-sub">Interactive lessons, visual chord diagrams, and a built-in metronome — everything you need to start playing today.</p>
+      <div class="hero-actions">
+        <a href="#lessons" class="btn btn-primary">Start Learning</a>
+        <a href="#chords" class="btn btn-ghost">Browse Chords</a>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="fretboard-preview">
+        <div class="fret-strings">
+          <div class="fret-string"></div>
+          <div class="fret-string"></div>
+          <div class="fret-string"></div>
+          <div class="fret-string"></div>
+          <div class="fret-string"></div>
+          <div class="fret-string"></div>
+        </div>
+        <div class="fret-lines">
+          <div class="fret-line"></div>
+          <div class="fret-line"></div>
+          <div class="fret-line"></div>
+          <div class="fret-line"></div>
+          <div class="fret-line"></div>
+        </div>
+        <div class="fret-dots">
+          <div class="fret-dot" style="top:30%; left:25%"></div>
+          <div class="fret-dot" style="top:55%; left:60%"></div>
+          <div class="fret-dot" style="top:70%; left:42%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Banner -->
+  <div class="progress-banner">
+    <div class="stat"><span class="stat-num">8</span><span class="stat-label">Lessons</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">12</span><span class="stat-label">Chords</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">5</span><span class="stat-label">Progressions</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Practice</span></div>
+  </div>
+
+  <!-- Lessons Section -->
+  <section id="lessons" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Lessons</h2>
+        <p>Start from the very beginning and build your skills step by step.</p>
+      </div>
+      <div class="lessons-list" id="lessonsList"></div>
+    </div>
+  </section>
+
+  <!-- Chord Library Section -->
+  <section id="chords" class="section section-alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Chord Library</h2>
+        <p>Learn the most essential guitar chords with visual diagrams.</p>
+      </div>
+      <div class="chord-tabs">
+        <button class="chord-tab active" data-category="major">Major</button>
+        <button class="chord-tab" data-category="minor">Minor</button>
+        <button class="chord-tab" data-category="seventh">7th Chords</button>
+      </div>
+      <div class="chord-grid" id="chordGrid"></div>
+      <div class="chord-legend">
+        <span class="legend-item"><span class="legend-x">&#x2715;</span> Muted string</span>
+        <span class="legend-item"><span class="legend-o">o</span> Open string</span>
+        <span class="legend-item"><span class="legend-dot"></span> Finger position</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Section -->
+  <section id="practice" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Practice Tools</h2>
+        <p>Use the metronome and chord trainer to build speed and muscle memory.</p>
+      </div>
+      <div class="practice-grid">
+
+        <!-- Metronome -->
+        <div class="practice-card">
+          <h3>Metronome</h3>
+          <div class="metronome-display">
+            <div class="beat-dots" id="beatDots">
+              <span class="beat-dot" data-beat="0"></span>
+              <span class="beat-dot" data-beat="1"></span>
+              <span class="beat-dot" data-beat="2"></span>
+              <span class="beat-dot" data-beat="3"></span>
+            </div>
+            <div class="bpm-display">
+              <span id="bpmValue">80</span>
+              <span class="bpm-label">BPM</span>
+            </div>
+          </div>
+          <input type="range" id="bpmSlider" class="bpm-slider" min="40" max="220" value="80">
+          <div class="bpm-presets">
+            <button class="preset-btn" data-bpm="60">Slow (60)</button>
+            <button class="preset-btn" data-bpm="80">Easy (80)</button>
+            <button class="preset-btn" data-bpm="100">Medium (100)</button>
+            <button class="preset-btn" data-bpm="120">Fast (120)</button>
+          </div>
+          <div class="time-sig-row">
+            <span class="ts-label">Time signature:</span>
+            <select id="timeSig" class="ts-select">
+              <option value="4">4/4</option>
+              <option value="3">3/4</option>
+              <option value="6">6/8</option>
+            </select>
+          </div>
+          <button class="btn btn-primary metro-toggle" id="metronomeToggle">Start</button>
+        </div>
+
+        <!-- Chord Progression Trainer -->
+        <div class="practice-card">
+          <h3>Chord Progression Trainer</h3>
+          <p class="card-sub">Practice switching between chords in time.</p>
+          <div class="progression-select-wrap">
+            <label class="field-label">Choose a progression:</label>
+            <select id="progressionSelect" class="ts-select full-width">
+              <option value="0">Pop Standard — G, C, D, Em</option>
+              <option value="1">Classic Rock — E, A, D, A</option>
+              <option value="2">Beginner Friendly — Em, Am, C, G</option>
+              <option value="3">Am Groove — Am, F, C, G</option>
+              <option value="4">Blues in E — E7, A7, E7, B7</option>
+            </select>
+          </div>
+          <div class="beats-per-chord-wrap">
+            <label class="field-label">Beats per chord: <strong id="beatsLabel">4</strong></label>
+            <input type="range" id="beatsSlider" class="bpm-slider" min="1" max="8" value="4">
+          </div>
+          <div class="trainer-display" id="trainerDisplay">
+            <div class="current-chord-label">Current Chord</div>
+            <div class="current-chord-name" id="currentChordName">—</div>
+            <div class="next-chord-row">Next: <span id="nextChordName">—</span></div>
+            <div class="beat-bar-wrap">
+              <div class="beat-bar" id="beatBar"></div>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="trainerToggle">Start Trainer</button>
+        </div>
+
+      </div>
+
+      <!-- Strumming Patterns -->
+      <div class="strumming-section">
+        <h3>Common Strumming Patterns</h3>
+        <p class="card-sub">D = Down stroke &nbsp;|&nbsp; U = Up stroke &nbsp;|&nbsp; &minus; = Pause/mute</p>
+        <div class="pattern-grid" id="patternGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">GuitarLearn</div>
+      <p class="footer-tip">Tip: Practice for 15 minutes daily — consistency beats long sessions every time.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
