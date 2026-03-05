@@ -89,8 +89,63 @@
     </div>
   </section>
 
+  <!-- Tuner Section -->
+  <section id="tuner" class="section section-alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Guitar Tuner</h2>
+        <p>Play any open string and the tuner will detect the note and tell you if you're in tune.</p>
+      </div>
+      <div class="tuner-container">
+        <div class="tuner-strings">
+          <div class="tuner-string-item">
+            <span class="tuner-string-label">6</span>
+            <div class="tuner-string-dot" data-string="6">E</div>
+          </div>
+          <div class="tuner-string-item">
+            <span class="tuner-string-label">5</span>
+            <div class="tuner-string-dot" data-string="5">A</div>
+          </div>
+          <div class="tuner-string-item">
+            <span class="tuner-string-label">4</span>
+            <div class="tuner-string-dot" data-string="4">D</div>
+          </div>
+          <div class="tuner-string-item">
+            <span class="tuner-string-label">3</span>
+            <div class="tuner-string-dot" data-string="3">G</div>
+          </div>
+          <div class="tuner-string-item">
+            <span class="tuner-string-label">2</span>
+            <div class="tuner-string-dot" data-string="2">B</div>
+          </div>
+          <div class="tuner-string-item">
+            <span class="tuner-string-label">1</span>
+            <div class="tuner-string-dot" data-string="1">e</div>
+          </div>
+        </div>
+
+        <div class="tuner-display">
+          <div class="tuner-note" id="tunerNote">—</div>
+          <div class="tuner-freq" id="tunerFreq"></div>
+          <div class="tuner-meter-wrap">
+            <span class="tuner-side-label">&#9837; Flat</span>
+            <div class="tuner-meter">
+              <div class="tuner-meter-bar" id="tunerMeterBar"></div>
+              <div class="tuner-needle" id="tunerNeedle"></div>
+              <div class="tuner-center-mark"></div>
+            </div>
+            <span class="tuner-side-label right">Sharp &#9839;</span>
+          </div>
+          <div class="tuner-status" id="tunerStatus">Press "Start Listening" to begin</div>
+        </div>
+
+        <button class="btn btn-primary tuner-toggle" id="tunerToggle">Start Listening</button>
+      </div>
+    </div>
+  </section>
+
   <!-- Chord Library Section -->
-  <section id="chords" class="section section-alt">
+  <section id="chords" class="section">
     <div class="section-inner">
       <div class="section-header">
         <h2>Chord Library</h2>
