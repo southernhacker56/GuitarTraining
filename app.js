@@ -715,11 +715,12 @@ class GuitarTuner {
   }
 
   _freqToResult(freq) {
-    const A4 = 440;
-    const semitones = 12 * Math.log2(freq / A4);
+    // Reference from C4 so semitone 0 = C (index 0 in NOTE_NAMES)
+    const C4 = 261.63;
+    const semitones = 12 * Math.log2(freq / C4);
     const semRounded = Math.round(semitones);
     const noteIdx = ((semRounded % 12) + 12) % 12;
-    const perfectFreq = A4 * Math.pow(2, semRounded / 12);
+    const perfectFreq = C4 * Math.pow(2, semRounded / 12);
     const cents = Math.round(1200 * Math.log2(freq / perfectFreq));
 
     // Find closest open guitar string
