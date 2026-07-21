@@ -22,11 +22,14 @@
         </svg>
         GuitarLearn
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#lessons">Lessons</a></li>
         <li><a href="#chords">Chords</a></li>
         <li><a href="#practice">Practice</a></li>
       </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -69,11 +72,11 @@
 
   <!-- Progress Banner -->
   <div class="progress-banner">
-    <div class="stat"><span class="stat-num">8</span><span class="stat-label">Lessons</span></div>
+    <div class="stat"><span class="stat-num" id="statLessons">0/8</span><span class="stat-label">Lessons</span></div>
     <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">12</span><span class="stat-label">Chords</span></div>
+    <div class="stat"><span class="stat-num" id="statChords">16</span><span class="stat-label">Chords</span></div>
     <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">5</span><span class="stat-label">Progressions</span></div>
+    <div class="stat"><span class="stat-num" id="statProgressions">5</span><span class="stat-label">Progressions</span></div>
     <div class="stat-divider"></div>
     <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Practice</span></div>
   </div>
@@ -136,7 +139,7 @@
             </div>
             <span class="tuner-side-label right">Sharp &#9839;</span>
           </div>
-          <div class="tuner-status" id="tunerStatus">Press "Start Listening" to begin</div>
+          <div class="tuner-status" id="tunerStatus" aria-live="polite">Press "Start Listening" to begin</div>
         </div>
 
         <button class="btn btn-primary tuner-toggle" id="tunerToggle">Start Listening</button>
@@ -151,12 +154,12 @@
         <h2>Chord Library</h2>
         <p>Learn the most essential guitar chords with visual diagrams.</p>
       </div>
-      <div class="chord-tabs">
-        <button class="chord-tab active" data-category="major">Major</button>
-        <button class="chord-tab" data-category="minor">Minor</button>
-        <button class="chord-tab" data-category="seventh">7th Chords</button>
+      <div class="chord-tabs" role="tablist" aria-label="Chord categories">
+        <button class="chord-tab active" data-category="major" role="tab" id="tab-major" aria-selected="true" aria-controls="chordGrid">Major</button>
+        <button class="chord-tab" data-category="minor" role="tab" id="tab-minor" aria-selected="false" aria-controls="chordGrid">Minor</button>
+        <button class="chord-tab" data-category="seventh" role="tab" id="tab-seventh" aria-selected="false" aria-controls="chordGrid">7th Chords</button>
       </div>
-      <div class="chord-grid" id="chordGrid"></div>
+      <div class="chord-grid" id="chordGrid" role="tabpanel" aria-labelledby="tab-major"></div>
       <div class="chord-legend">
         <span class="legend-item"><span class="legend-x">&#x2715;</span> Muted string</span>
         <span class="legend-item"><span class="legend-o">o</span> Open string</span>
@@ -255,6 +258,10 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="js/chords.js"></script>
+  <script src="js/lessons.js"></script>
+  <script src="js/practice.js"></script>
+  <script src="js/tuner.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
